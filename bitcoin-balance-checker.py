@@ -64,7 +64,7 @@ def check_balance(address):
     for i, btc_tokens in enumerate(blockchain_info_array):
 
         sys.stdout.write ("%s \t= " % blockchain_tags_json[i])
-        if btc_tokens > 0.0:
+        if btc_tokens > 0.0001:
             print( "%.8f Bitcoin" % (btc_tokens/SATOSHIS_PER_BTC) );
         else:
             print( "0 Bitcoin" );
