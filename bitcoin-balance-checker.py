@@ -64,19 +64,14 @@ def check_balance(address):
     for i, btc_tokens in enumerate(blockchain_info_array):
 
         sys.stdout.write ("%s \t= " % blockchain_tags_json[i])
-        if btc_tokens > 0.0001:
+        if btc_tokens > 10000:
             print( "%.8f Bitcoin" % (btc_tokens/SATOSHIS_PER_BTC) );
         else:
             print( "0 Bitcoin" );
 
-        if (SONG_BELL and blockchain_tags_json[i] == 'final_balance' > 0.0001): 
+        if (blockchain_tags_json[i] == 'final_balance' and btc_tokens > 10000):
             
-            #If you have a balance greater than 0 you will hear the bell
-            sys.stdout.write ('\a\a\a')
-            sys.stdout.flush()
-
-            arq1.write("Bitcoin Address: %s" % check_address)
-            arq1.write("\t Balance: %.8f Bitcoin" % (btc_tokens/SATOSHIS_PER_BTC))
+            arq1.write("%s" % check_address)
             arq1.write("\n")
             arq1.close()
             if (WARN_WAIT_TIME > 0):
@@ -91,6 +86,3 @@ with open("list-addresses.txt") as file:
         
         check_balance(address)
         
-arq1 = open('addresses-with-balance-yay.txt', 'a')
-arq1.write("test_fin",)
-arq1.close()
