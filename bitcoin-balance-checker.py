@@ -69,7 +69,7 @@ def check_balance(address):
         else:
             print( "0 Bitcoin" );
 
-        if (SONG_BELL and blockchain_tags_json[i] == 'final_balance' and btc_tokens > 0.0): 
+        if (SONG_BELL and blockchain_tags_json[i] == 'final_balance' and btc_tokens > 0.0001): 
             
             #If you have a balance greater than 0 you will hear the bell
             sys.stdout.write ('\a\a\a')
