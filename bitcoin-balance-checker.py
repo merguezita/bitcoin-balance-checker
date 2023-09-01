@@ -69,7 +69,7 @@ def check_balance(address):
         else:
             print( "0 Bitcoin" );
 
-        if (SONG_BELL and blockchain_tags_json[i] == 'final_balance' and btc_tokens > 0.0001): 
+        if (SONG_BELL and blockchain_tags_json[i] == 'final_balance' > 0.0001): 
             
             #If you have a balance greater than 0 you will hear the bell
             sys.stdout.write ('\a\a\a')
@@ -91,6 +91,11 @@ with open("list-addresses.txt") as file:
         
         check_balance(address)
         
-print ("__________________________________________________\n")
+print "__________________________________________________\n"
+print "Developed by: ~geniusprodigy"
+print "My contact on reddit: reddit.com/u/genius360\n"
+print "If this saved you time or helped, donations please for BTC Address:"
+print "1FrRd4iZRMU8i2Pbffzkac5u4KwUptmc7S"
 arq1 = open('addresses-with-balance-yay.txt', 'a')
+arq1.write("\nDeveloped by: ~geniusprodigy. If this saved you time or helped, donations please for BTC Address: 1FrRd4iZRMU8i2Pbffzkac5u4KwUptmc7S")
 arq1.close()
