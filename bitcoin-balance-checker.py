@@ -91,6 +91,5 @@ with open("list-addresses.txt") as file:
         
         check_balance(address)
 
-print "__________________________________________________\n"
 arq1 = open('addresses-with-balance-yay.txt', 'a')
 arq1.close()
