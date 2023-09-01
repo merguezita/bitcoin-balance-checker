@@ -16,7 +16,7 @@ except: # if is python2
 def check_balance(address):
 
     #Modify the value of the variable below to False if you do not want Bell Sound when the Software finds balance.
-    SONG_BELL = True
+    SONG_BELL = False
 
     #Add time different of 0 if you need more security on the checks
     WARN_WAIT_TIME = 0
@@ -64,7 +64,7 @@ def check_balance(address):
     for i, btc_tokens in enumerate(blockchain_info_array):
 
         sys.stdout.write ("%s \t= " % blockchain_tags_json[i])
-        if btc_tokens > 0.0:
+        if btc_tokens > 0.0001:
             print( "%.8f Bitcoin" % (btc_tokens/SATOSHIS_PER_BTC) );
         else:
             print( "0 Bitcoin" );
