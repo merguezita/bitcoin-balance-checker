@@ -16,7 +16,7 @@ except: # if is python2
 def check_balance(address):
 
     #Modify the value of the variable below to False if you do not want Bell Sound when the Software finds balance.
-    SONG_BELL = True
+    SONG_BELL = False
 
     #Add time different of 0 if you need more security on the checks
     WARN_WAIT_TIME = 0
@@ -64,19 +64,14 @@ def check_balance(address):
     for i, btc_tokens in enumerate(blockchain_info_array):
 
         sys.stdout.write ("%s \t= " % blockchain_tags_json[i])
-        if btc_tokens > 0.0:
+        if btc_tokens > 10000:
             print( "%.8f Bitcoin" % (btc_tokens/SATOSHIS_PER_BTC) );
         else:
             print( "0 Bitcoin" );
 
-        if (SONG_BELL and blockchain_tags_json[i] == 'final_balance' and btc_tokens > 0.0): 
+        if (blockchain_tags_json[i] == 'final_balance' and btc_tokens > 10000):
             
-            #If you have a balance greater than 0 you will hear the bell
-            sys.stdout.write ('\a\a\a')
-            sys.stdout.flush()
-
-            arq1.write("Bitcoin Address: %s" % check_address)
-            arq1.write("\t Balance: %.8f Bitcoin" % (btc_tokens/SATOSHIS_PER_BTC))
+            arq1.write("%s" % check_address)
             arq1.write("\n")
             arq1.close()
             if (WARN_WAIT_TIME > 0):
@@ -85,18 +80,9 @@ def check_balance(address):
 #Add the filename of your list of Bitcoin Addresses for check all.
 with open("list-addresses.txt") as file:
     for line in file:
-
-    	arq1 = open('addresses-with-balance-yay.txt', 'a')
+        arq1 = open('addresses-with-balance-yay.txt', 'a')
         address = str.strip(line)
         print ("__________________________________________________\n")
         
         check_balance(address)
-
-print "__________________________________________________\n"
-print "Developed by: ~geniusprodigy"
-print "My contact on reddit: reddit.com/u/genius360\n"
-print "If this saved you time or helped, donations please for BTC Address:"
-print "1FrRd4iZRMU8i2Pbffzkac5u4KwUptmc7S"
-arq1 = open('addresses-with-balance-yay.txt', 'a')
-arq1.write("\nDeveloped by: ~geniusprodigy. If this saved you time or helped, donations please for BTC Address: 1FrRd4iZRMU8i2Pbffzkac5u4KwUptmc7S")
-arq1.close()
+        
