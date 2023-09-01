@@ -85,9 +85,8 @@ def check_balance(address):
 #Add the filename of your list of Bitcoin Addresses for check all.
 with open("list-addresses.txt") as file:
     for line in file:
-    	arq1 = open('addresses-with-balance-yay.txt', 'a')
+        arq1 = open('addresses-with-balance-yay.txt', 'a')
         address = str.strip(line)
-        
         print ("__________________________________________________\n")
         
         check_balance(address)
